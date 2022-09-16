@@ -1,0 +1,18 @@
+/*Elementselektor */
+div {
+    background-color: blue;
+}
+
+/* id-Selektor */
+#header {
+    font-size: 2rem;
+}
+
+/* Klassenselektor */
+.subtitle {
+    color: red;
+}
+
+#text p {
+    background-color: violet;
+}
