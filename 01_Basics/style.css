@@ -1,18 +1,27 @@
-/*Elementselektor */
 div {
+    border-style: solid;
+    height: 10em;
+}
+
+.div1 {
+    background-color: red;
+    width: 10em;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.div2 {
+    background-color: green;
+    position: fixed;
+    bottom: 1em;
+    width: 100%;
+}
+
+.div3 {
     background-color: blue;
-}
-
-/* id-Selektor */
-#header {
-    font-size: 2rem;
-}
-
-/* Klassenselektor */
-.subtitle {
-    color: red;
-}
-
-#text p {
-    background-color: violet;
+    position: absolute;
+    width: 100%;
+    top: 30em;
+    left: 50em;
 }
