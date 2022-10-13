@@ -28,3 +28,46 @@ console.log(sum);
 // X  X X  X
 // X       X
 // X       X
+
+for (let i = 0;  i < 6; i++) {
+    if (i == 0) {
+        let str = "";
+        for(let x = 0; x < 6; x++) {
+            str += "X"
+        }
+        console.log(str);
+        continue;
+    }
+    else if (i < 5) {
+        let str = "";
+        for(let x = 0; x < 8; x++) {
+            if (x == 0) {
+                str += "X";
+                if (i < 4) {
+                    str += " ";
+                }
+            }
+            else if (x < 6) {
+                str += " ";
+            }
+            else {
+                str += "X";
+            }
+        }
+        console.log(str);
+        continue;
+    }
+
+    let str = "";
+    for(let x = 0; x < 5; x++) {
+        str += "X";
+    }
+    console.log(str);
+}
+
+// XXXXXX
+// X     XX
+// X     XX
+// X     XX
+// X    XX
+// XXXXX
