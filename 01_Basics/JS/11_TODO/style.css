@@ -1,0 +1,16 @@
+* {
+    user-select: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.todo-wrapper {
+    width: 25%;
+    margin: auto;
+}
+
+#completed {
+    cursor: pointer;
+}
