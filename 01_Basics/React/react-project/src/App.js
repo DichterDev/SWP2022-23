@@ -1,35 +1,41 @@
+// import logo from './logo.svg';
 import './App.css';
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 
-function 
+function App() {
+  
+  let [task, setTaskname] = useState({});
+  let [tasks, setTasks] = useState([{}]);
 
-class App extends Component {
+  const handleTasknameChange = (event) => {
+    const value = event.target.value;
+    setTaskname({
+      name: value
+    })
+  };
 
-  tasks = [{
-    id: 1, name: "asdf", assigned: "name"
-  }];
-
-  constructor() {
-    this.tasks = [{}];
+  const handleTaskChange = () => {
+    const value = tasks.push(task);
+    setTasks(value);
   }
 
-  taskname = "";
-
   return (
-    <header>
-      Todos
-      <div class="add-task">
-        <input type="text" value={taskname}></input>
-        <button onClick={}>Save</button>
-      </div>
-      <div class="tasks">
-        {tasks && tasks.map(task => 
-          <div> 
-            {task.name}
-          </div>  
-        )}
-      </div>
-    </header>
+    <div className="App">
+      <header className="App-header">
+        TODO
+        <div>
+          <input value={task.name} onChange={handleTasknameChange}></input>
+          <button onClick={handleTaskChange}></button>
+        </div>
+        <ul>
+          {
+            tasks.forEach(task => {
+              <li>{task.name}</li>
+            })
+          }
+        </ul>
+      </header>
+    </div>
   );
 }
 
