@@ -1,0 +1,15 @@
+.todo {
+    width: 50%;
+    margin: 0 auto 0 auto;
+}
+
+.todo-label {
+    width: 45px;
+    height: 25px;
+    margin: 0 auto;
+}
+
+.task {
+    width: 150px;
+    height: 25px;
+}
