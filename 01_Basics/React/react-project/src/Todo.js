@@ -2,17 +2,25 @@
 import './Todo.css';
 import React, {Component} from 'react';
 import TodoList from './TaskList.js';
+import Task from './Task.js'
+import Completed from './Completed.js';
 
 class Todo extends Component{
   constructor(props) {
     super(props);
+    this.completedTasks = []
+    this.todo = []
     this.state = {
       tasks: [],
-      task: {}
+      task: {
+        completed: true
+      }
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.removeTask = this.removeTask.bind(this);
+    this.checkCompletion = this.checkCompletion.bind(this);
   }
 
   handleChange(event) {
@@ -24,18 +32,36 @@ class Todo extends Component{
     this.setState({
       tasks: [...this.state.tasks, this.state.task]
     });
-    console.log(this.state.tasks);
-  } 
+    this.checkCompletion()
+  }
+
+  checkCompletion() {
+    if (this.state.task.completed) {
+      this.completedTasks.push(this.state.task)
+    }
+    else {
+      this.todo.push(this.state.task)
+    }
+  }
+
+  removeTask (event, element) {
+    console.log(element);
+    this.setState({tasks: this.state.tasks.splice(this.state.tasks.indexOf(element), 1)})
+    this.checkCompletion()
+  }
 
   render() {
     return (
       <div class="todo">
-          <label class="todo-label">TODO</label>
-          <div>
+          <p class="todo-label">TODO</p>
+          <div class="add-task">
             <input value={this.state.task.name} onChange={this.handleChange}></input>
             <button onClick={this.handleSubmit}>Add</button>
           </div>
-          <TodoList tasks={this.state.tasks} />
+          <div class="task-list">
+                {this.state.tasks.map(task => <Task task={task} removeTask={this.removeTask}/>)}
+          </div>
+          <Completed tasks={this.completedTasks} />
       </div>
     );
   }

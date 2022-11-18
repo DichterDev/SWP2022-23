@@ -1,6 +1,6 @@
 .todo {
     width: 50%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
 }
 
 .todo-label {
@@ -9,7 +9,24 @@
     margin: 0 auto;
 }
 
+.add-task {
+    width: 190px;
+    margin: 0 auto;
+}
+
+.task-list {
+    width: 500px;
+    margin: 0 auto;
+}
+
 .task {
-    width: 150px;
-    height: 25px;
+    width: 500px;
+    height: 100px;
+    background-color: greenyellow;
+
+    margin-top: 10px;
+}
+
+.task:nth-child(even) {
+    background-color: aqua;
 }
