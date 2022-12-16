@@ -1,4 +1,5 @@
 import React from 'react'
+import './../App.css';
 
 export interface ITask {
     name: string,
@@ -8,8 +9,9 @@ export interface ITask {
 }
 
 function Task(task: ITask) {
+    
     return (
-        <div>
+        <div className='task' >
             <p className="title">
                 {task.name}
             </p>
@@ -17,7 +19,7 @@ function Task(task: ITask) {
                 {task.description}
             </p>
             <p className="timestamp">
-                {task.date.toString()}
+                {task.date.toUTCString()}
             </p>
 
             <div>
