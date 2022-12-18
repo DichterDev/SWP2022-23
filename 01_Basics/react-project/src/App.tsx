@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import { ITask } from './components/Task';
 import AddTask from './components/AddTask';
 import './App.css';
 import Tasklist from './components/TaskList';
+
+//TODO: Add EDIT TASK
+
+export interface ITaskFunctions {
+  changeCompletionStatus: (index:number) => void;
+  removeTask: (index:number) => void;
+}
 
 function App() {
   const [tasks, _setTasks] = useState<ITask[]>([]);
@@ -12,14 +18,26 @@ function App() {
     _setTasks([..._tasks])
   }
 
-  function addTask(task:ITask)  {
+  function addTask(task:ITask) {
     setTasks([...tasks, {...task}]);
+  }
+
+  function changeCompletionStatus(index: number) {
+    let _tasks: ITask[] = [...tasks];
+    _tasks[index].isDone = !_tasks[index].isDone;
+    setTasks(_tasks);
+   console.log('change');
   }
 
   function removeTask(index:number) {
     let _tasks = tasks;
     _tasks.slice(index, 1);
     setTasks(_tasks);
+  }
+
+  const taskFunctions: ITaskFunctions = {
+    changeCompletionStatus: changeCompletionStatus,
+    removeTask: removeTask
   }
 
   return (
@@ -29,13 +47,13 @@ function App() {
           ToDo
         </h2>
         <AddTask addTask={addTask}></AddTask>
-        <Tasklist tasklist={[...tasks.filter(task => task.isDone === false)]}></Tasklist>
+        <Tasklist tasklist={[...tasks.filter(task => task.isDone === false)]} taskFunctions={taskFunctions}></Tasklist>
       </div>
       <div className='completed'>
         <h2>
           Completed
         </h2>
-        <Tasklist tasklist={[...tasks.filter(task => task.isDone === true)]}></Tasklist>
+        <Tasklist tasklist={[...tasks.filter(task => task.isDone === true)]} taskFunctions={taskFunctions}></Tasklist>
       </div>
     </div>
   );

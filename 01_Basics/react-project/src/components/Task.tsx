@@ -8,21 +8,27 @@ export interface ITask {
     isDone: boolean
 }
 
-function Task(task: ITask) {
-    
+interface _Task {
+    index: number;
+    task: ITask;
+    changeCompletion: (index:number) => void;
+}
+
+function Task({index, task, changeCompletion}: _Task) {
+
     return (
-        <div className='task' >
-            <p className="title">
+        <div className='task'>
+            <p className="task-title">
                 {task.name}
             </p>
-            <p className="description">
+            <p className="task-description">
                 {task.description}
             </p>
-            <p className="timestamp">
-                {task.date.toUTCString()}
+            <p className="task-timestamp">
+                Created: {task.date.toUTCString()}
             </p>
 
-            <div>
+            <div onClick={() => changeCompletion(index)}>
                 <img alt=''></img>
             </div>
         </div>

@@ -1,3 +1,8 @@
+body {
+  height: 1px;
+  background: linear-gradient(45deg, #DCDCDD, #C5C3C6);
+}
+
 .wrapper {
   position: absolute;
   height: 100%;
@@ -21,4 +26,25 @@
 
 .tasklist {
   color: red;
+}
+
+.task {
+  background-color: whitesmoke;
+  border-radius: 5px;
+
+  padding-left: 5px;
+}
+
+.task-title {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.task-description {
+  
+}
+
+.task-timestamp {
+  color: darkgrey;
+  margin-bottom: 0;
 }

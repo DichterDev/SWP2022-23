@@ -1,12 +1,18 @@
 import React from 'react'
 import Task, { ITask } from './Task';
+import { ITaskFunctions } from '../App';
 import './../App.css';
 
 interface TaskList {
     tasklist: ITask[];
+    taskFunctions: ITaskFunctions;
 }
 
-function Tasklist({tasklist}: TaskList) {
+function Tasklist({tasklist, taskFunctions}: TaskList) {
+
+    const changeCompletionStatus = (index: number) => {
+        taskFunctions.changeCompletionStatus(index);
+    }
     
     if (!tasklist?.length) {
         return(
@@ -21,9 +27,11 @@ function Tasklist({tasklist}: TaskList) {
     return (
         <div className='tasklist'>
             {
-                tasklist.map(task => {
+                tasklist.map((task, index) => {
                     return(
-                        <Task {...task}></Task>
+                        <div>
+                            <Task index={index} task={task} changeCompletion={changeCompletionStatus}></Task>
+                        </div>
                     )
                 })
             }
