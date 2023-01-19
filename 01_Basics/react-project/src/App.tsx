@@ -26,13 +26,19 @@ function App() {
     let _tasks: ITask[] = [...tasks];
     _tasks[index].isDone = !_tasks[index].isDone;
     setTasks(_tasks);
-   console.log('change');
+    console.log('change');
+    console.log(_tasks);
+    
   }
 
   function removeTask(index:number) {
     let _tasks = tasks;
-    _tasks.slice(index, 1);
+    _tasks.splice(index, 1);
+    console.log(_tasks);
+    
     setTasks(_tasks);
+    console.log('remove');
+    
   }
 
   const taskFunctions: ITaskFunctions = {

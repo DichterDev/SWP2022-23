@@ -10,10 +10,6 @@ interface TaskList {
 
 function Tasklist({tasklist, taskFunctions}: TaskList) {
 
-    const changeCompletionStatus = (index: number) => {
-        taskFunctions.changeCompletionStatus(index);
-    }
-    
     if (!tasklist?.length) {
         return(
             <div className='tasklist'>
@@ -30,7 +26,7 @@ function Tasklist({tasklist, taskFunctions}: TaskList) {
                 tasklist.map((task, index) => {
                     return(
                         <div>
-                            <Task index={index} task={task} changeCompletion={changeCompletionStatus}></Task>
+                            <Task index={index} task={task} taskFunctions={taskFunctions}></Task>
                         </div>
                     )
                 })

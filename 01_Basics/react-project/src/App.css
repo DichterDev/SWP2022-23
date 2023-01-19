@@ -29,10 +29,17 @@ body {
 }
 
 .task {
+  cursor: default;
   background-color: whitesmoke;
+  margin-top: 1vh;
   border-radius: 5px;
-
   padding-left: 5px;
+  overflow:hidden
+}
+
+.task-information {
+  float:left; 
+  display:inline; 
 }
 
 .task-title {
@@ -41,10 +48,31 @@ body {
 }
 
 .task-description {
-  
+  white-space: pre-line;
 }
 
 .task-timestamp {
   color: darkgrey;
   margin-bottom: 0;
+}
+
+.task-icon {
+  position: relative;
+  top: 66px;
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.task-completion {
+  float: left;
+}
+
+.task-delete {
+  float: right
+}
+
+.icon {
+  height: 5vh;
+  display:inline; 
+  padding: 1vh;
 }

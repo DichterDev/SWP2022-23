@@ -33,7 +33,7 @@ function AddTask({addTask}: IAddTask) {
         _task.date = new Date();
         addTask(_task);
     }
-
+    
     return(
 
         <form className='add-task' onSubmit={handleSubmit}>
