@@ -5,6 +5,7 @@ import './../App.css';
 import {ITaskFunctions} from '../App';
 
 export interface ITask {
+    index: number,
     name: string,
     description: string,
     date: Date,
@@ -21,7 +22,7 @@ function Task({index, task, taskFunctions}: _Task) {
 
     return (
         <div className='task'>
-            <div className="task-completion task-icon" onClick={() => taskFunctions.changeCompletionStatus(index)}>
+            <div className="task-completion task-icon" onClick={() => taskFunctions.changeCompletionStatus(task.index)}>
                 {
                     (task.isDone) ? <MdOutlineCheckBox className='icon'></MdOutlineCheckBox> : <MdOutlineCheckBoxOutlineBlank className='icon'></MdOutlineCheckBoxOutlineBlank>
                 }

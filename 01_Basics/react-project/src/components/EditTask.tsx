@@ -1,15 +1,13 @@
-import react, { useState, useRef } from 'react'
-import { ITask } from './Task'
+import React from 'react'
+import react, { useState } from 'react';
+import Task, { ITask } from './Task';
 import './../App.css';
 
-interface IAddTask {
-    addTask: (task: ITask) => void
+export interface IEditTask {
+    editTask: (task:ITask) => void;
 }
 
-function AddTask({addTask}: IAddTask) {
-    
-    const taskCounter = useRef(0);
-
+function EditTask({editTask}: IEditTask) {
     const [task, setTask] = useState<ITask>({
         index: 0,
         name: '',
@@ -33,19 +31,15 @@ function AddTask({addTask}: IAddTask) {
     const handleSubmit = (event: react.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let _task = task;
-        _task.index = taskCounter.current++;
         _task.date = new Date();
-        addTask(_task);
+        editTask(task);
     }
-    
-    return(
 
-        <form className='add-task' onSubmit={handleSubmit}>
-            <input className='input-task-name' onChange={handleNameChange}></input>
-            <input className='input-task-description' onChange={handleDescriptionChange}></input>
-            <input type='submit' value='Add Task'></input>
-        </form>
+    return (
+        <div className='edit-task'>
+
+        </div>
     );
 }
 
-export default AddTask;
+export default EditTask;

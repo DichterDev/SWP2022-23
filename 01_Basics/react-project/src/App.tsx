@@ -11,6 +11,10 @@ export interface ITaskFunctions {
   removeTask: (index:number) => void;
 }
 
+export interface IEditTaskFunctions {
+  editTask: (index:number) => void;
+}
+
 function App() {
   const [tasks, _setTasks] = useState<ITask[]>([]);
 
@@ -26,9 +30,8 @@ function App() {
     let _tasks: ITask[] = [...tasks];
     _tasks[index].isDone = !_tasks[index].isDone;
     setTasks(_tasks);
-    console.log('change');
+    console.log(`${_tasks[index].name} set to ${(_tasks[index].isDone) ? 'Completed' : 'Todo'}`);
     console.log(_tasks);
-    
   }
 
   function removeTask(index:number) {
@@ -38,7 +41,12 @@ function App() {
     
     setTasks(_tasks);
     console.log('remove');
-    
+  }
+
+  function editTask(index:number, task:ITask) {
+    let _tasks = tasks;
+    _tasks[index] = task;
+    setTasks(_tasks);
   }
 
   const taskFunctions: ITaskFunctions = {
