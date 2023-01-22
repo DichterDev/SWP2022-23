@@ -1,20 +1,16 @@
 import React from 'react'
 import react, { useState } from 'react';
 import Task, { ITask } from './Task';
+import { IEditTaskFunctions } from '../App';
 import './../App.css';
 
-export interface IEditTask {
-    editTask: (task:ITask) => void;
+interface _IEditTask {
+    editTask: ITask;
+    editTaskFunctions: IEditTaskFunctions;
 }
 
-function EditTask({editTask}: IEditTask) {
-    const [task, setTask] = useState<ITask>({
-        index: 0,
-        name: '',
-        description: '',
-        date: new Date(),
-        isDone: false
-    });
+function EditTask({editTask, editTaskFunctions}: _IEditTask) {
+    const [task, setTask] = useState<ITask>(editTask);
 
     const handleNameChange = (event: react.ChangeEvent<HTMLInputElement>) => {
         let _task = task;
@@ -32,13 +28,18 @@ function EditTask({editTask}: IEditTask) {
         event.preventDefault();
         let _task = task;
         _task.date = new Date();
-        editTask(task);
+        editTaskFunctions.changeTask(task.index, task);
     }
 
-    return (
-        <div className='edit-task'>
 
-        </div>
+
+    return (
+        <form className='edit-task' onSubmit={handleSubmit}>
+            <input className='input-task-name' placeholder={task.name} onChange={handleNameChange}></input>
+            <input className='input-task-description' onChange={handleDescriptionChange}></input>
+            <input type='submit' className='button save' value='Save'></input>
+            <input type='button' className='button cancel' value='Cancel'></input>
+        </form>
     );
 }
 

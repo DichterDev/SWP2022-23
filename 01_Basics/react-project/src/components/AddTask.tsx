@@ -33,6 +33,8 @@ function AddTask({addTask}: IAddTask) {
     const handleSubmit = (event: react.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let _task = task;
+        if (!task.name) _task.name = 'Task';
+        if(!task.description) _task.description = 'Lorem Ipsum';
         _task.index = taskCounter.current++;
         _task.date = new Date();
         addTask(_task);
@@ -40,10 +42,10 @@ function AddTask({addTask}: IAddTask) {
     
     return(
 
-        <form className='add-task' onSubmit={handleSubmit}>
-            <input className='input-task-name' onChange={handleNameChange}></input>
-            <input className='input-task-description' onChange={handleDescriptionChange}></input>
-            <input type='submit' value='Add Task'></input>
+        <form className='add-task box' onSubmit={handleSubmit}>
+            <input type='text' className='input-task-name' placeholder='Title' onChange={handleNameChange}></input>
+            <input type='text' className='input-task-description' placeholder='Description' onChange={handleDescriptionChange}></input>
+            <input type='submit' className='button save' value='Add Task'></input>
         </form>
     );
 }

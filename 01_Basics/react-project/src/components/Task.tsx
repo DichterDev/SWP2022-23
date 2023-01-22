@@ -19,15 +19,14 @@ interface _Task {
 }
 
 function Task({index, task, taskFunctions}: _Task) {
-
     return (
-        <div className='task'>
+        <div className='task box default-cursor'>
             <div className="task-completion task-icon" onClick={() => taskFunctions.changeCompletionStatus(task.index)}>
                 {
-                    (task.isDone) ? <MdOutlineCheckBox className='icon'></MdOutlineCheckBox> : <MdOutlineCheckBoxOutlineBlank className='icon'></MdOutlineCheckBoxOutlineBlank>
+                    (task.isDone) ? <MdOutlineCheckBox size={70} className='icon'></MdOutlineCheckBox> : <MdOutlineCheckBoxOutlineBlank size={70} className='icon'></MdOutlineCheckBoxOutlineBlank>
                 }
             </div>
-            <div className='task-information'>
+            <div className='task-information' onClick={() => taskFunctions.showEditTask(task.index)}>
                 <p className="task-title">
                     {task.name}
                 </p>
@@ -39,7 +38,7 @@ function Task({index, task, taskFunctions}: _Task) {
                 </p>
             </div>
             <div className="task-delete task-icon" onClick={() => taskFunctions.removeTask(index)}>
-                <CiTrash className='icon'></CiTrash>
+                <CiTrash size={70} className='icon'></CiTrash>
             </div>
         </div>
     );

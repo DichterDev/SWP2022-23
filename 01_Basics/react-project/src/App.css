@@ -1,40 +1,112 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 body {
+  background: linear-gradient(45deg, #D8DBE2, #A9BCD0);
   height: 1px;
-  background: linear-gradient(45deg, #DCDCDD, #C5C3C6);
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+input[type=text] {
+  height: 50px;
+  outline: none;
+  color: gray;
+}
+
+input[type=text]:focus{
+  border: 3px solid lightgray;
+}
+
+#root {
+  width: 100%;
+}
+
+.box {
+  background-color: whitesmoke;
+  margin: 1vh;
+  border-radius: 5px;
+  padding: 5px;
+
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.button {
+  height: 50px;
+  width: 150px;
+}
+
+.button:hover {
+  background-color: #A9BCD0;
+}
+
+.button:focus {
+  border: 3px solid lightgray;
+  background-color: #D8DBE2;
+}
+
+.save {
+  background-color: lightgray;
+}
+
+.cancel {
+  background-color: rgb(216, 29, 29);
 }
 
 .wrapper {
   position: absolute;
-  height: 100%;
-  width: 25%;
-  top: 50%;
+  height: auto;
+  width: 90%;
+  top: 5%;
   left: 5%;
-  transform: translate(0, -50%);
+  right: 5%;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .add-task {
-  display: block;
+  
 }
 
 .add-task > * {
-  width: 100%;
-}
-
-.input-task-name {
-  width: 100%;
+  width: auto;
+  margin: 1vh;
 }
 
 .tasklist {
   color: red;
+  grid-column: 1;
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: minmax(100px, auto);
+  grid-auto-flow: row;
+  grid-auto-columns: 50%;
+}
+
+.completed {
+  grid-column: 1;
+}
+
+.edit-task {
+  grid-column: 2;
+  grid-row: 1 / auto;
+}
+
+.default-cursor {
+  cursor: default;
 }
 
 .task {
   cursor: default;
-  background-color: whitesmoke;
-  margin-top: 1vh;
-  border-radius: 5px;
-  padding-left: 5px;
-  overflow:hidden
 }
 
 .task-information {
@@ -58,7 +130,7 @@ body {
 
 .task-icon {
   position: relative;
-  top: 66px;
+  top: 50%;
   height: 100%;
   transform: translateY(-50%);
 }
@@ -72,7 +144,13 @@ body {
 }
 
 .icon {
+  color:black;
   height: 5vh;
   display:inline; 
   padding: 1vh;
+  width: auto;
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%)
 }

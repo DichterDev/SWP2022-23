@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
+import './App.css';
+import React, { useState, useRef, useEffect } from 'react';
 import { ITask } from './components/Task';
 import AddTask from './components/AddTask';
-import './App.css';
 import Tasklist from './components/TaskList';
+import EditTask from './components/EditTask';
 
 //TODO: Add EDIT TASK
 
 export interface ITaskFunctions {
   changeCompletionStatus: (index:number) => void;
   removeTask: (index:number) => void;
+  showEditTask: (index:number) => void;
 }
 
 export interface IEditTaskFunctions {
-  editTask: (index:number) => void;
+  changeTask: (index:number, task:ITask) => void;
+  hideEditTask: () => void;
 }
 
 function App() {
   const [tasks, _setTasks] = useState<ITask[]>([]);
+  const [editTask, setEditTask] = useState<ITask>({index: 0, name: '', description: '', date: new Date(), isDone: false});
+  let editTaskBackup = useRef<ITask>({index: 0, name: '', description: '', date: new Date(), isDone: false});
+  const [isEditTaskHidden, setIsEditTaskHidden] = useState(true);
 
   function setTasks (_tasks: ITask[]) {
     _setTasks([..._tasks])
@@ -31,7 +37,6 @@ function App() {
     _tasks[index].isDone = !_tasks[index].isDone;
     setTasks(_tasks);
     console.log(`${_tasks[index].name} set to ${(_tasks[index].isDone) ? 'Completed' : 'Todo'}`);
-    console.log(_tasks);
   }
 
   function removeTask(index:number) {
@@ -43,15 +48,35 @@ function App() {
     console.log('remove');
   }
 
-  function editTask(index:number, task:ITask) {
+  function changeTask(index:number, task:ITask) {
     let _tasks = tasks;
-    _tasks[index] = task;
+    _tasks[getIndexOfTask(index)] = task;
     setTasks(_tasks);
+    hideEditTask()
   }
+
+  function showEditTask (index:number) {
+    setEditTask(tasks[getIndexOfTask(index)]);
+    editTaskBackup.current = tasks[getIndexOfTask(index)];
+    setIsEditTaskHidden(false)
+    console.log(`Editing ${editTask.name}`)
+  }
+
+  function getIndexOfTask(index:number) {
+    return tasks.findIndex(task => task.index === index);
+  }
+
+  const hideEditTask = () => setIsEditTaskHidden(true);
 
   const taskFunctions: ITaskFunctions = {
     changeCompletionStatus: changeCompletionStatus,
-    removeTask: removeTask
+    removeTask: removeTask,
+    showEditTask: showEditTask
+  }
+
+  const editTaskFunctions: IEditTaskFunctions = {
+    changeTask: changeTask,
+    hideEditTask: hideEditTask
   }
 
   return (
@@ -69,6 +94,7 @@ function App() {
         </h2>
         <Tasklist tasklist={[...tasks.filter(task => task.isDone === true)]} taskFunctions={taskFunctions}></Tasklist>
       </div>
+      { (isEditTaskHidden) ? null : <EditTask editTask={editTask} editTaskFunctions={editTaskFunctions}></EditTask> }
     </div>
   );
 }

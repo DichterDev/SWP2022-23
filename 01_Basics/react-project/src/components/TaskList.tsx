@@ -25,9 +25,7 @@ function Tasklist({tasklist, taskFunctions}: TaskList) {
             {
                 tasklist.map((task, index) => {
                     return(
-                        <div>
-                            <Task index={index} task={task} taskFunctions={taskFunctions}></Task>
-                        </div>
+                        <Task index={index} task={task} taskFunctions={taskFunctions}></Task>
                     )
                 })
             }
