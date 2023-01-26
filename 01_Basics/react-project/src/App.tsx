@@ -66,6 +66,7 @@ function App() {
     return tasks.findIndex(task => task.index === index);
   }
 
+
   const hideEditTask = () => setIsEditTaskHidden(true);
 
   const taskFunctions: ITaskFunctions = {

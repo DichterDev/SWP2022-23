@@ -1,5 +1,6 @@
 * {
   font-family: 'Courier New', Courier, monospace;
+  box-sizing:border-box;
 }
 
 body {
@@ -31,7 +32,7 @@ input[type=text]:focus{
 
 .box {
   background-color: whitesmoke;
-  margin: 1vh;
+  margin: 3px;
   border-radius: 5px;
   padding: 5px;
 
@@ -78,7 +79,7 @@ input[type=text]:focus{
 
 .add-task > * {
   width: auto;
-  margin: 1vh;
+  margin: 5px;
 }
 
 .tasklist {
@@ -116,22 +117,27 @@ input[type=text]:focus{
 
 .task-title {
   font-size: 25px;
-  margin-bottom: 5px;
+  margin: 5px 0 5px 0;
 }
 
 .task-description {
-  white-space: pre-line;
+  word-break: break-all; /*  */
+  white-space: normal; /* be sure its not 'nowrap'! ! ! :/ */
 }
 
 .task-timestamp {
   color: darkgrey;
   margin-bottom: 0;
+  
+  position: relative;
+  bottom:0;
 }
 
 .task-icon {
   position: relative;
   top: 50%;
   height: 100%;
+  width: auto;
   transform: translateY(-50%);
 }
 
@@ -145,11 +151,9 @@ input[type=text]:focus{
 
 .icon {
   color:black;
-  height: 5vh;
   display:inline; 
-  padding: 1vh;
-  width: auto;
-
+  padding: 3px;
+  width: 30px;
   position: relative;
   top: 50%;
   transform: translateY(-50%)

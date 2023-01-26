@@ -31,14 +31,12 @@ function EditTask({editTask, editTaskFunctions}: _IEditTask) {
         editTaskFunctions.changeTask(task.index, task);
     }
 
-
-
     return (
         <form className='edit-task' onSubmit={handleSubmit}>
             <input className='input-task-name' placeholder={task.name} onChange={handleNameChange}></input>
             <input className='input-task-description' onChange={handleDescriptionChange}></input>
             <input type='submit' className='button save' value='Save'></input>
-            <input type='button' className='button cancel' value='Cancel'></input>
+            <div className='button cancel' onClick={() => editTaskFunctions.hideEditTask}>Cancel</div>
         </form>
     );
 }
