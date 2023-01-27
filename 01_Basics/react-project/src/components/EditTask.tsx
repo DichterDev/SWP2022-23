@@ -31,10 +31,14 @@ function EditTask({editTask, editTaskFunctions}: _IEditTask) {
         editTaskFunctions.changeTask(task.index, task);
     }
 
+    const handleCancel = (event: react.MouseEventHandler<HTMLDivElement>) => {
+        
+    }
+
     return (
         <form className='edit-task' onSubmit={handleSubmit}>
-            <input className='input-task-name' placeholder={task.name} onChange={handleNameChange}></input>
-            <input className='input-task-description' onChange={handleDescriptionChange}></input>
+            <input className='input-task-name' value={task.name} onChange={handleNameChange}></input>
+            <input className='input-task-description' value={task.description} onChange={handleDescriptionChange}></input>
             <input type='submit' className='button save' value='Save'></input>
             <div className='button cancel' onClick={() => editTaskFunctions.hideEditTask}>Cancel</div>
         </form>
