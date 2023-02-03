@@ -58,7 +58,7 @@ function StellarObject(object: IStellarObject) {
   })
 
   return (
-    <div id={object.name} style={{position:'absolute', left: object.id * 1000,backgroundColor: planetColor.current, height: getScale(), width: getScale()}} className='stellar-object' onClick={() => handleClick}>
+    <div id={object.name} style={{position:'absolute', left: object.distance.value / onePixel,backgroundColor: planetColor.current, height: getScale(), width: getScale()}} className='stellar-object' onClick={() => handleClick}>
     </div>
   );
 }

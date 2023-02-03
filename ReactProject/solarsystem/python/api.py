@@ -21,6 +21,10 @@ neptune = planets['NEPTUNE BARYCENTER']
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return ''
+
 @app.route("/distances")
 def distances():
     obj: object = {'distances': 

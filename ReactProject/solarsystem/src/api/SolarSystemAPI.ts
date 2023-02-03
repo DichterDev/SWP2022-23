@@ -8,6 +8,7 @@ export interface IStellarObject {
     radius: number;
     mass: Mass;
     volume: Volume;
+    distance: Distance;
     moons?: number;
 }
 
@@ -69,6 +70,14 @@ interface Body {
 interface RootObject {
     bodies: Body[];
 }
+interface RootDistance {
+    distances: { [key: string]: Distance };
+}
+
+interface Distance {
+    name:  string;
+    value: number;
+}
 
 
 const order: {[name: string]: number} = {
@@ -83,21 +92,29 @@ const order: {[name: string]: number} = {
     'Neptune': 8
 }
 
+async function getDistances() {
+    let distances: RootDistance = await (await axios.get('/distances')).data;
+    return distances
+}
+
 async function getPlanets() {
+    let distances = await (await getDistances()).distances;
     let planets: IStellarObject[] = [];
     let rawPlanets: RootObject = await (await axios.get('https://api.le-systeme-solaire.net/rest/bodies?filter[]=isPlanet,eq,true')).data;
     console.log(rawPlanets)
     rawPlanets.bodies.forEach(planet => {
-        let object: IStellarObject = {'id': order[planet.englishName], 'name': planet.englishName, 'radius': planet.meanRadius, 'mass': planet.mass, 'volume': planet.vol, 'moons': planet.moons?.length ?? 0}
+        let object: IStellarObject = {'id': order[planet.englishName], 'name': planet.englishName, 'radius': planet.meanRadius, 'mass': planet.mass, 'volume': planet.vol, 'distance': distances[order[planet.englishName]], 'moons': planet.moons?.length ?? 0}
+        object.distance = distances[object.id];
         planets.push(object);
     });
     return planets;
 }
 
 async function getSun() {
+    let distances = await (await getDistances()).distances;
     let _sun: RootObject = await (await axios.get('https://api.le-systeme-solaire.net/rest/bodies?filter[]=englishName,eq,sun')).data;
     let sun: Body[] = _sun.bodies;
-    let object: IStellarObject = {'id': order[sun[0].englishName], 'name': sun[0].englishName, 'radius': sun[0].meanRadius, 'mass': sun[0].mass, 'volume': sun[0].vol, 'moons': 0}
+    let object: IStellarObject = {'id': order[sun[0].englishName], 'name': sun[0].englishName, 'radius': sun[0].meanRadius, 'mass': sun[0].mass, 'volume': sun[0].vol, 'distance': distances[order[sun[0].englishName]],'moons': 0}
     return object;
 }
 
