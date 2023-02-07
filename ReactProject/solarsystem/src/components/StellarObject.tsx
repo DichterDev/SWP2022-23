@@ -55,10 +55,10 @@ function StellarObject(object: IStellarObject) {
       setColor();
     }
     _setColor();
-  })
+  }, [])
 
   return (
-    <div id={object.name} style={{position:'absolute', left: object.distance.value / onePixel,backgroundColor: planetColor.current, height: getScale(), width: getScale()}} className='stellar-object' onClick={() => handleClick}>
+    <div id={object.name} style={{position:'absolute', left: object.distance.value / onePixel,backgroundColor: planetColor.current, height: getScale(), width: getScale()}} className='stellar-object' onClick={() => handleClick()}>
     </div>
   );
 }
