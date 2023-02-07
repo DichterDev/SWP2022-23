@@ -2,6 +2,24 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup the project
+
+### `yarn`
+
+To install all the required modules.
+
+### `.\python\Setup.ps1`
+
+To setup the virtual environment for the python backend API.
+
+### Start the project
+
+`yarn start`: To start the react application.
+
+In another window:
+
+`yarn start-api`: To start the python backend.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -13,6 +31,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `yarn start-api`
+
+Run the python backend api.\
+Standardport is `http://localhost:5000`
+Available endpoints:
+- `/distances`: returns the correct distances between the barycenter of the solar system and the planets in km.
 
 ### `yarn test`
 
