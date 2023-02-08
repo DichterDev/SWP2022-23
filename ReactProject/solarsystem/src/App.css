@@ -14,3 +14,9 @@ body {
   transform: translateY(-50%);
   border-radius: 50%;
 }
+
+.Navigation {
+  position: fixed;
+  left: 50%;
+  transform: translatex(-50%);
+}

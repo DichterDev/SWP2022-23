@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import StellarObject from './components/StellarObject';
+import Navigation from './components/Navigation';
 import getSolarSystem from './api/SolarSystemAPI';
 import { IStellarObject } from './api/SolarSystemAPI';
 import './App.css';
@@ -22,6 +23,9 @@ function App() {
         solarSystem.map(object => {
           return <StellarObject {...object}></StellarObject>
         })
+      }
+      {
+        <Navigation objects={[...solarSystem]}></Navigation>
       }
     </div>
   );
