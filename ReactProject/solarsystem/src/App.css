@@ -20,3 +20,12 @@ body {
   left: 50%;
   transform: translatex(-50%);
 }
+
+#barycenter {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  background-color: white;
+  height: 96%;
+  width: 1px;
+}

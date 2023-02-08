@@ -19,6 +19,7 @@ function App() {
 
   return (
     <div className="App">
+      <div id='barycenter'></div>
       {
         solarSystem.map(object => {
           return <StellarObject {...object}></StellarObject>
