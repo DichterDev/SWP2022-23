@@ -9,6 +9,11 @@ import './App.css';
 function App() {
   const [solarSystem, setSolarSystem] = useState<IStellarObject[]>([]);
 
+  // TODO: Autoscroll
+  // TODO: Menu
+  // TODO: Menuoptions: Scale, View (Top-Down, General Distances)
+  // TODO: Informative Text
+
   useEffect(() => {
     async function _getSolarSystem() {
       setSolarSystem(await getSolarSystem());
