@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Setup the project
 
+**Disclaimer: This only word on Windows, for Linux everything has to be setup manually**
+
 ### `yarn`
 
 To install all the required modules.
