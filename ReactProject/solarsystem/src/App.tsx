@@ -18,12 +18,15 @@ function App() {
     async function _getSolarSystem() {
       setSolarSystem(await getSolarSystem());
     }
-
+    window.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      window.scrollBy(event.deltaY, 0);
+    });
     _getSolarSystem();
   }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <div id='barycenter'></div>
       {
         solarSystem.map(object => {
