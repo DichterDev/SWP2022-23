@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
 
 
@@ -13,12 +13,11 @@ function AutoScroll() {
 
   function handleClick() {
     setIsAutoScrolling(!isAutoScrolling);
-    console.log('Click');
   }
 
   useEffect(() => {
     if (!isAutoScrolling) return;
-    
+
     const intervalID = setInterval(() => {
         window.scrollBy(scrollSpeed/20, 0);
     }, 50)
