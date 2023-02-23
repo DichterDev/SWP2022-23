@@ -4,6 +4,7 @@ import StellarObject from './components/StellarObject';
 import Navigation from './components/Navigation';
 import getSolarSystem from './api/SolarSystemAPI';
 import { IStellarObject } from './api/SolarSystemAPI';
+import AutoScroll from './components/AutoScroll';
 import './App.css';
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
       }
       {
         <Navigation objects={[...solarSystem]}></Navigation>
+      }
+      {
+        <AutoScroll></AutoScroll>
       }
     </div>
   );
