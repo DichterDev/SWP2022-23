@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import StellarObject from './components/StellarObject';
 import Navigation from './components/Navigation';
 import getSolarSystem from './api/SolarSystemAPI';
