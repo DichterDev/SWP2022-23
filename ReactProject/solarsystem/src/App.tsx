@@ -5,6 +5,7 @@ import getSolarSystem from './api/SolarSystemAPI';
 import { IStellarObject } from './api/SolarSystemAPI';
 import AutoScroll from './components/AutoScroll';
 import './App.css';
+import CurrentSpeed from './components/CurrentSpeed';
 
 function App() {
   const [solarSystem, setSolarSystem] = useState<IStellarObject[]>([]);
@@ -33,12 +34,9 @@ function App() {
           return <StellarObject {...object}></StellarObject>
         })
       }
-      {
-        <Navigation objects={[...solarSystem]}></Navigation>
-      }
-      {
-        <AutoScroll></AutoScroll>
-      }
+      {<Navigation objects={[...solarSystem]}></Navigation>}
+      {<CurrentSpeed></CurrentSpeed>}
+      {<AutoScroll></AutoScroll>}
     </div>
   );
 }
