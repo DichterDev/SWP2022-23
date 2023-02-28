@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 
 function CurrentSpeed() {
+    // TODO: Dropdown to select unit of measurement (km/s, soccerfields/s, miles/s, moons/s, mph, kmh)
+    
     const [currentSpeed, SetCurrentSpeed] = useState(0);
 
     const moonRadius = 1737.4 // km
