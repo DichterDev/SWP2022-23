@@ -41,6 +41,15 @@ body {
   width: 1px;
 }
 
+.current-speed {
+  color: white;
+
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1vh;
+}
+
 .auto-scroll {
   position: fixed;
   bottom: 1vh;
