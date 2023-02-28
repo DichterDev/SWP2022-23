@@ -9,24 +9,37 @@ function AutoScroll() {
   const speedOfLight = 300_000 // km/s 
   const scrollSpeed = speedOfLight / onePixel;
 
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
 
   function handleClick() {
     setIsAutoScrolling(!isAutoScrolling);
   }
 
   useEffect(() => {
+    window.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      setIsAutoScrolling(false);
+    });
+    window.addEventListener('click', event => {
+      event.preventDefault();
+      if(event.target !== document.getElementById('button-auto-scroll')) {
+        setIsAutoScrolling(false);
+      }
+    });
+  }, [])
+
+  useEffect(() => {
     if (!isAutoScrolling) return;
 
     const intervalID = setInterval(() => {
-        window.scrollBy(scrollSpeed/20, 0);
-    }, 50)
+        window.scrollBy(Math.round(scrollSpeed)/40, 0);
+    }, 25)
 
     return () => clearInterval(intervalID);
   }, [isAutoScrolling]);
 
   return (
-    <button className='auto-scroll' type='button' onClick={() => handleClick()}>AutoScroll</button>
+    <button id='button-auto-scroll' className='auto-scroll' type='button' onClick={() => handleClick()}>AutoScroll</button>
   );
 }
 
