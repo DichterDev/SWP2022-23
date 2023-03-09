@@ -14,6 +14,8 @@ function App() {
   // TODO: Menu
   // TODO: Menuoptions: Scale, View (Top-Down, General Distances)
   // TODO: Informative Text
+  // TODO: Progress Bar
+  // TODO: Icons (Navigation, Autoscroll)
 
   useEffect(() => {
     async function _getSolarSystem() {
@@ -35,7 +37,6 @@ function App() {
         })
       }
       {<Navigation objects={[...solarSystem]}></Navigation>}
-      {<CurrentSpeed></CurrentSpeed>}
       {<AutoScroll></AutoScroll>}
     </div>
   );
