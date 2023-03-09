@@ -49,7 +49,7 @@ body {
 
 .auto-scroll {
   position: fixed;
-  bottom: 1vh;
+  top: 1vh;
   right: 1vw;
 }
 
