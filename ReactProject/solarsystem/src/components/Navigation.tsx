@@ -19,7 +19,7 @@ function Navigation(props: props) {
     <div className="Navigation">
       {
         props.objects.map(object => {
-          return <button type="button" onClick={() => handleClick(object.name)}>{object.name}</button>
+          return <img src={require(`../icons/${object.name}.png`)} alt={object.name} onClick={() => handleClick(object.name)}></img>
         })
       }
       {<CurrentSpeed></CurrentSpeed>}

@@ -27,9 +27,19 @@ body {
 }
 
 .Navigation {
+  margin-top: 1vh;
   position: fixed;
   left: 50%;
   transform: translatex(-50%);
+}
+
+.Navigation img {
+  width: 4vh;
+  margin-right: 1vw;
+}
+
+.Navigation img:hover {
+  cursor: pointer;
 }
 
 #barycenter {
@@ -51,6 +61,12 @@ body {
   position: fixed;
   top: 1vh;
   right: 1vw;
+  background-color: rgb(255, 255, 255, 0.2);
+}
+
+.auto-scroll img {
+  height: 9vh;
+  aspect-ratio: 1;
 }
 
 .dropdown{
