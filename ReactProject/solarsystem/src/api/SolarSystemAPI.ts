@@ -101,7 +101,6 @@ async function getPlanets() {
     let distances = await (await getDistances()).distances;
     let planets: IStellarObject[] = [];
     let rawPlanets: RootObject = await (await axios.get('https://api.le-systeme-solaire.net/rest/bodies?filter[]=isPlanet,eq,true')).data;
-    console.log(rawPlanets)
     rawPlanets.bodies.forEach(planet => {
         let object: IStellarObject = {'id': order[planet.englishName], 'name': planet.englishName, 'radius': planet.meanRadius, 'mass': planet.mass, 'volume': planet.vol, 'distance': distances[order[planet.englishName]], 'moons': planet.moons?.length ?? 0}
         object.distance = distances[object.id];
@@ -133,7 +132,6 @@ async function getSolarSystem() {
         
         return 0;
     });
-    console.log(stellarObjects);
     return stellarObjects;
 }
 
