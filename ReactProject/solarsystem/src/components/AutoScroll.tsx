@@ -39,7 +39,9 @@ function AutoScroll() {
   }, [isAutoScrolling]);
 
   return (
-    <button id='button-auto-scroll' className='auto-scroll' type='button' onClick={() => handleClick()}>AutoScroll</button>
+    <div id='button-auto-scroll' className='auto-scroll' onClick={() => handleClick()}>
+      <img src={require('../icons/Comet.png')} alt='light-speed'></img>
+    </div>
   );
 }
 
