@@ -93,13 +93,11 @@ body {
 #current-speed-display {
   position: absolute;
   right: 50%;
-  border: 1px solid red;
 }
 
 #current-speed-unit {
   position: absolute;
   left: 50%;
-  border: 1px solid green;
 }
 
 .progress-bar {
