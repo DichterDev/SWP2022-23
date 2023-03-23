@@ -1,0 +1,36 @@
+.current_speed {
+    color: white;
+    position: relative;
+    margin-top: 1vh;
+}
+
+.dropdown{
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 2px 2px 0px 0px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    cursor: default;
+    user-select: none;
+}
+
+.dropdown * {
+    padding: 10%;
+}
+
+.dropdown *:hover {
+    background-color: rgb(255,255,255, 0.2);
+}
+
+#current_speed_value {
+    position: absolute;
+    right: 50%;
+}
+
+#current_speed_unit {
+    position: absolute;
+    left: 50%;
+}

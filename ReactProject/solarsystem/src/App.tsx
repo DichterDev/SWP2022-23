@@ -5,7 +5,7 @@ import getSolarSystem from './api/SolarSystemAPI';
 import { IStellarObject } from './api/SolarSystemAPI';
 import AutoScroll from './components/AutoScroll';
 import './App.css';
-import ProgressBar from './components/ProgessBar';
+import ProgressBar from './components/ProgressBar';
 
 function App() {
   const [solarSystem, setSolarSystem] = useState<IStellarObject[]>([]);

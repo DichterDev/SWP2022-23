@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { IStellarObject } from '../api/SolarSystemAPI';
-import '../App.css';
-
+import styles from './StellarObject.module.css'
 
 function StellarObject(object: IStellarObject) {
   
@@ -58,7 +57,7 @@ function StellarObject(object: IStellarObject) {
   }, [])
 
   return (
-    <div id={object.name} style={{position:'absolute', left: object.distance.value / onePixel,backgroundColor: planetColor.current, height: getScale(), width: getScale()}} className='stellar-object' onClick={() => handleClick()}>
+    <div id={object.name} style={{position:'absolute', left: object.distance.value / onePixel,backgroundColor: planetColor.current, height: getScale(), width: getScale()}} className={styles.stellar_object} onClick={() => handleClick()}>
     </div>
   );
 }

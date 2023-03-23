@@ -1,0 +1,11 @@
+.autoscroll {
+    position: fixed;
+    top: 1vh;
+    right: 1vw;
+    background-color: rgb(255, 255, 255, 0.2);
+}
+  
+.autoscroll img {
+    height: 9vh;
+    aspect-ratio: 1;
+}

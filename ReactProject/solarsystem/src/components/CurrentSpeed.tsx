@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import styles from './CurrentSpeed.module.css'
 
 function CurrentSpeed() {
     // TODO: Dropdown to select unit of measurement (km/s, soccerfields/s, miles/s, moons/s, mph, kmh)
@@ -42,12 +43,12 @@ function CurrentSpeed() {
     }
 
     return (
-        <div className="current-speed">
+        <div className={styles.current_speed}>
             <div onClick={() => SetIsDropdownHidden(false)}>
-                <div id="current-speed-display">{currentSpeed}</div>
-                <div id="current-speed-unit">{selectedUnit}</div>
+                <div id={styles.current_speed_value}>{currentSpeed}</div>
+                <div id={styles.current_speed_unit}>{selectedUnit}</div>
             </div>
-            <div className="dropdown" style={(isDropdownHidden) ? {display: "none"} : {display: "inherit"}}>
+            <div className={styles.dropdown} style={(isDropdownHidden) ? {display: "none"} : {display: "inherit"}}>
                 {
                     Object.entries(units).map(([key, value]) => {
                         return <div className="dropdown-button" onClick={() => handleDropdownClick(key)}>{key}</div>})

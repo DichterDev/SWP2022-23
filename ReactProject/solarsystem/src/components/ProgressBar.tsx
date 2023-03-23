@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import getSolarSystem from "../api/SolarSystemAPI";
-import '../App.css';
+import styles from './ProgressBar.module.css'
 
 function ProgressBar() {
     const [progress, setProgress] = useState(0);
@@ -23,8 +23,8 @@ function ProgressBar() {
     
 
     return(
-        <div className="progress-bar">
-            <div className="bar" style={{width: `${progress*100}%`}}></div>
+        <div className={styles.progress_bar}>
+            <div className={styles.bar} style={{width: `${progress*100}%`}}></div>
         </div>
     );
 }

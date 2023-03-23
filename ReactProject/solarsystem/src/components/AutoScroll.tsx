@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../App.css';
-
+import styles from './AutoScroll.module.css'
 
 function AutoScroll() {
 
@@ -39,7 +38,7 @@ function AutoScroll() {
   }, [isAutoScrolling]);
 
   return (
-    <div id='button-auto-scroll' className='auto-scroll' onClick={() => handleClick()}>
+    <div id='button-auto-scroll' className={styles.autoscroll} onClick={() => handleClick()}>
       <img src={require('../icons/Comet.png')} alt='light-speed'></img>
     </div>
   );

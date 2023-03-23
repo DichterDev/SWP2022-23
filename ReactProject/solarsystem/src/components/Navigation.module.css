@@ -1,0 +1,16 @@
+.navigation {
+    margin-top: 1vh;
+    position: fixed;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+  
+.navigation img {
+    width: 4vh;
+    margin-right: 1vw;
+  }
+  
+.navigation img:hover {
+    cursor: pointer;
+  }
+  

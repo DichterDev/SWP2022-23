@@ -1,0 +1,6 @@
+.stellar_object {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
