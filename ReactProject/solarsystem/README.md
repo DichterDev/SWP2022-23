@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Setup the project
 
-**Disclaimer: This only word on Windows, for Linux everything has to be setup manually**
+**Disclaimer: This only works on Windows, for Linux/Mac everything has to be setup manually**
 
 ### `yarn`
 
@@ -37,7 +37,7 @@ You will also see any lint errors in the console.
 ### `yarn start-api`
 
 Run the python backend api.\
-Standardport is `http://localhost:5000`
+Defaultport is `http://localhost:5000`
 Available endpoints:
 - `/distances`: returns the correct distances between the barycenter of the solar system and the planets in km.
 
