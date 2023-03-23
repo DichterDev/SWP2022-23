@@ -10,10 +10,6 @@ function AutoScroll() {
 
   const [isAutoScrolling, setIsAutoScrolling] = useState(false);
 
-  function handleClick() {
-    setIsAutoScrolling(!isAutoScrolling);
-  }
-
   useEffect(() => {
     window.addEventListener('wheel', (event) => {
       event.preventDefault();
@@ -23,6 +19,7 @@ function AutoScroll() {
       event.preventDefault();
       if(event.target !== document.getElementById('button-auto-scroll')) {
         setIsAutoScrolling(false);
+        console.log(event.target);
       }
     });
   }, [])
@@ -31,15 +28,15 @@ function AutoScroll() {
     if (!isAutoScrolling) return;
 
     const intervalID = setInterval(() => {
-        window.scrollBy(Math.round(scrollSpeed)/40, 0);
+      window.scrollBy(Math.round(scrollSpeed)/40, 0);
     }, 25)
 
     return () => clearInterval(intervalID);
   }, [isAutoScrolling]);
 
   return (
-    <div id='button-auto-scroll' className={styles.autoscroll} onClick={() => handleClick()}>
-      <img src={require('../icons/Comet.png')} alt='light-speed'></img>
+    <div className={styles.autoscroll} onClick={() => setIsAutoScrolling(!isAutoScrolling)}>
+      <img id='button-auto-scroll' src={require('../icons/Comet.png')} alt='light-speed'></img>
     </div>
   );
 }
