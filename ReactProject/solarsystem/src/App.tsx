@@ -10,12 +10,9 @@ import ProgressBar from './components/ProgressBar';
 function App() {
   const [solarSystem, setSolarSystem] = useState<IStellarObject[]>([]);
 
-  // TODO: Autoscroll
-  // TODO: Menu
-  // TODO: Menuoptions: Scale, View (Top-Down, General Distances)
-  // TODO: Informative Text
-  // TODO: Progress Bar
-  // TODO: Icons (Navigation, Autoscroll)
+  // TODO: Informativer Text
+  // TODO: CurrentSpeed Dropdown
+  // TODO: Planet Colors
 
   useEffect(() => {
     async function _getSolarSystem() {
