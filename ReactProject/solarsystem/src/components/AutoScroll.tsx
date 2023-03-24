@@ -19,7 +19,6 @@ function AutoScroll() {
       event.preventDefault();
       if(event.target !== document.getElementById('button-auto-scroll')) {
         setIsAutoScrolling(false);
-        console.log(event.target);
       }
     });
   }, [])
