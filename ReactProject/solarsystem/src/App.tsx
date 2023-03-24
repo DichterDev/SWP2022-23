@@ -11,8 +11,8 @@ function App() {
   const [solarSystem, setSolarSystem] = useState<IStellarObject[]>([]);
 
   // TODO: Informativer Text
-  // TODO: CurrentSpeed Dropdown
   // TODO: Planet Colors
+  // TODO: Set Barycenter as 0 Point for Planets
 
   useEffect(() => {
     async function _getSolarSystem() {

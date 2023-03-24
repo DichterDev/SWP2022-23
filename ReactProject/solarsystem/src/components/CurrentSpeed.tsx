@@ -35,22 +35,28 @@ function CurrentSpeed() {
         return () => clearInterval(intervalID);
     });
 
-
     //onclick function for the dropdown
     function handleDropdownClick(str: string) {
         SetSelectedUnit(str);
         SetIsDropdownHidden(true);
     }
 
+    function returnArray(unit: string) {
+        let _units = Object.keys(units);        
+        _units.splice(_units.findIndex(element => element === unit), 1);
+        _units.unshift(unit);
+        return _units;
+    }
+
     return (
         <div className={styles.current_speed}>
             <div onClick={() => SetIsDropdownHidden(false)}>
-                <div id={styles.current_speed_value}>{currentSpeed}</div>
-                <div id={styles.current_speed_unit}>{selectedUnit}</div>
+                <div id={styles.current_speed_value}>{currentSpeed}&nbsp;</div>
+                <div id={styles.current_speed_unit} style={(!isDropdownHidden) ? {display: "none"} : {display: "inherit"}}>{selectedUnit}</div>
             </div>
-            <div className={styles.dropdown} style={(isDropdownHidden) ? {display: "none"} : {display: "inherit"}}>
+            <div className={styles.dropdown} style={(isDropdownHidden) ? {display: "none"} : {display: "inline-block"}}>
                 {
-                    Object.entries(units).map(([key, value]) => {
+                    returnArray(selectedUnit).map(key => {
                         return <div className="dropdown-button" onClick={() => handleDropdownClick(key)}>{key}</div>})
                 }
             </div>
