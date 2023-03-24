@@ -24,7 +24,7 @@ function CurrentSpeed() {
     let posX = useRef(0);
     let deltaPosX = useRef(0);
     const [isDropdownHidden, SetIsDropdownHidden] = useState(true);
-
+    
     useEffect(() => {
         const intervalID = setInterval(() => {
             deltaPosX.current = (window.scrollX-posX.current < 0) ? window.scrollX-posX.current*-1 : window.scrollX-posX.current;

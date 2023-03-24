@@ -19,10 +19,15 @@
 .dropdown * {
     display: inline-block;
     padding-right: 10px;
+    cursor: pointer;
 }
 
 .dropdown *:not(:hover) {
     color: rgb(255,255,255, 0.2);
+}
+
+.dropdown *:first-child {
+    color: white;
 }
 
 #current_speed_value {
