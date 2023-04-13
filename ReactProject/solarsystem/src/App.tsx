@@ -9,11 +9,7 @@ import ProgressBar from './components/ProgressBar';
 
 function App() {
   const [solarSystem, setSolarSystem] = useState<IStellarObject[]>([]);
-
-  // TODO: Informativer Text
-  // TODO: Planet Colors
-  // TODO: Set Barycenter as 0 Point for Planets
-
+  
   useEffect(() => {
     async function _getSolarSystem() {
       setSolarSystem(await getSolarSystem());
@@ -33,7 +29,7 @@ function App() {
           return <StellarObject {...object}></StellarObject>
         })
       }
-      {<Navigation objects={[...solarSystem]}></Navigation>}
+      {<Navigation objects={[...solarSystem.map(obj => ({...obj, isDetailHidden: true}))]}></Navigation>}
       {<AutoScroll></AutoScroll>}
       {<ProgressBar></ProgressBar>}
 
